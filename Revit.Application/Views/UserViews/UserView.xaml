@@ -1,0 +1,145 @@
+﻿<UserControl
+    x:Class="Revit.Application.Views.UserViews.UserView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:controls="clr-namespace:Revit.Application.Views.UserControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:uiModel="clr-namespace:Revit.Application.Styles.UIModel"
+    xmlns:userViewModels="clr-namespace:Revit.Application.ViewModels.UserViewModels"
+    Name="用户管理"
+    d:DataContext="{d:DesignInstance userViewModels:UserViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Revit.Application;component/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <StackPanel
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Orientation="Horizontal">
+            <Button
+                VerticalAlignment="Center"
+                Command="{Binding AddCommand}"
+                Content="添加用户" />
+        </StackPanel>
+        <Grid x:Name="gridContainer" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="col1" Grid.Column="0" />
+            <Grid x:Name="col2" Grid.Column="1" />
+            <Grid x:Name="col3" Grid.Column="2" />
+            <Grid x:Name="col4" Grid.Column="3" />
+            <Grid x:Name="col5" Grid.Column="4" />
+            <Grid x:Name="col6" Grid.Column="5" />
+            <Grid x:Name="col7" Grid.Column="6" />
+        </Grid>
+        <DataGrid
+            Grid.Row="1"
+            AutoGenerateColumns="False"
+            BorderBrush="Transparent"
+            CanUserAddRows="False"
+            HeadersVisibility="All"
+            ItemsSource="{Binding dataPager.GridModelList}"
+            RowHeaderWidth="60"
+            SelectedItem="{Binding dataPager.SelectedItem}">
+            <b:Interaction.Triggers>
+                <b:EventTrigger EventName="SelectionChanged">
+                    <b:InvokeCommandAction Command="{Binding RoleSelectionChangedCommand}" CommandParameter="{Binding ElementName=roles, Path=SelectedItem}" />
+                </b:EventTrigger>
+            </b:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding UserName}"
+                    Header="账户名" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding FullName}"
+                    Header="昵称" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding PhoneNumber}"
+                    Header="手机号" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Remark}"
+                    Header="备注" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding Status}"
+                    Header="状态" />
+                <DataGridTextColumn
+                    Width="*"
+                    Binding="{Binding CreateTime}"
+                    Header="注册日期" />
+                <DataGridTemplateColumn Width="*" Header="操作">
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <UniformGrid HorizontalAlignment="Right" Columns="2">
+                                <Button
+                                    Margin="5,0"
+                                    Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Content="修改" />
+                                <Button
+                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Content="删除" />
+                            </UniformGrid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <UniformGrid HorizontalAlignment="Right" Columns="2">
+                                <Button
+                                    Margin="5,0"
+                                    Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Content="修改" />
+                                <Button
+                                    Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}}"
+                                    CommandParameter="{Binding}"
+                                    Content="删除" />
+                            </UniformGrid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <hc:Pagination
+            Grid.Row="2"
+            Height="30"
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            DataCountPerPage="{Binding dataPager.PageSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            IsJumpEnabled="True"
+            MaxPageCount="{Binding dataPager.PageCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            MaxPageInterval="{Binding dataPager.NumericButtonCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            PageIndex="{Binding dataPager.PageIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</UserControl>

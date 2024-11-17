@@ -1,0 +1,12 @@
+<Project >
+	<PropertyGroup>
+		<PlatformTarget>x64</PlatformTarget>
+		<LangVersion>10</LangVersion>
+		<Configurations>
+			Debug;Release;
+			RVT_18_RELEASE;RVT_18_DEBUG;
+			RVT_25_RELEASE;RVT_25_DEBUG
+		</Configurations>
+		<RvtVersion>2018</RvtVersion>
+	</PropertyGroup>
+</Project>

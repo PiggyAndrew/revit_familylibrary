@@ -1,0 +1,93 @@
+﻿<UserControl
+    x:Class="Revit.Application.Views.FamilyViews.PublicViews.FamilyLibaryPublicUploadView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="clr-namespace:Revit.Application.Converter"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:Revit.Application.Views.FamilyViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:uiModel="clr-namespace:Revit.Application.Styles.UIModel"
+    xmlns:usercontrols="clr-namespace:Revit.Application.Views.UserControls"
+    xmlns:vm="clr-namespace:Revit.Application.ViewModels.FamilyViewModels.PublicViewModels"
+    Name="公共族库上传"
+    d:DataContext="{d:DesignInstance vm:FamilyLibraryPublicUploadViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Revit.Application;component/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <convert:ConvertFamilyAuditEnumToString x:Key="ConvertFamilyAuditEnumToString" />
+            <convert:Byte2UnitConverter x:Key="Byte2UnitConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <hc:ComboBox
+                Height="23"
+                MinWidth="100"
+                Margin="5,0"
+                VerticalAlignment="Center"
+                VerticalContentAlignment="Center"
+                SelectedIndex="0">
+                <ComboBoxItem>待审核</ComboBoxItem>
+            </hc:ComboBox>
+            <Button
+                VerticalAlignment="Center"
+                Command="{Binding UploadFamilyFilesCommand}"
+                Content="上传公共族库" />
+        </StackPanel>
+        <Border Grid.Row="1">
+            <DataGrid
+                Margin="0,5"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                ItemsSource="{Binding dataPager.GridModelList, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                SelectedItem="{Binding dataPager.SelectedItem}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding Name}"
+                        Header="族名称" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding FileBytesSize, Converter={StaticResource Byte2UnitConverter}}"
+                        Header="大小" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding FileExtension}"
+                        Header="文件类型" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding CreationTime, StringFormat=yyyy年MM月dd日}"
+                        Header="上传时间" />
+                    <DataGridTextColumn
+                        Width="*"
+                        Binding="{Binding FamilyAuditStatus, Converter={StaticResource ConvertFamilyAuditEnumToString}}"
+                        Header="审核状态" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <hc:Pagination
+            Grid.Row="2"
+            Height="30"
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            DataCountPerPage="{Binding dataPager.PageSize, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            IsJumpEnabled="True"
+            MaxPageCount="{Binding dataPager.PageCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            MaxPageInterval="{Binding dataPager.NumericButtonCount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            PageIndex="{Binding dataPager.PageIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+    </Grid>
+</UserControl>

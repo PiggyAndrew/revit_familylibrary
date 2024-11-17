@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Revit.Application.Views.ProjectViews.ProjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+             xmlns:local="clr-namespace:Revit.Application.Views"
+             xmlns:vm="clr-namespace:Revit.Application.ViewModels.ProjectViewModels"
+             d:DataContext="{d:DesignInstance vm:ProjectViewModel}"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d"
+             Width="auto"
+             Height="auto"
+             d:Width="1000"
+             d:Height="800"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListView Width="200"
+                  HorizontalAlignment="Stretch"
+                  Name="listView"
+                  ItemsSource="{Binding MenuBars}">
+           
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ContentControl Grid.Column="1"
+                        x:Name="ProjectDetailContent"
+                        prism:RegionManager.RegionName="ProjectDetailContent" />
+    </Grid>
+</UserControl>

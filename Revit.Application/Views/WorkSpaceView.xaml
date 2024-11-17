@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="Revit.Application.Views.WorkSpaceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Revit.Application.Views"
+             xmlns:vm="clr-namespace:Revit.Application.ViewModels"
+             xmlns:prism="http://prismlibrary.com/"
+             d:DataContext="{d:DesignInstance vm:WorkSpaceViewModel}"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             Width="auto"
+             Height="auto"
+             d:Width="2000"
+             d:Height="1000">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BorderStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--<Style  TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily"
+                        Value="../Resources/#iconfont" />
+                <Setter Property="Foreground"
+                        Value="Gray" />
+            </Style>-->
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.ColumnSpan="2"
+                      VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Margin="10,0"
+                                HorizontalAlignment="Left"
+                                Orientation="Horizontal">
+                        <TextBlock Text="&#xe61d;"
+                                   FontFamily="../Resources/#iconfont"
+                                   Height="40"
+                                   Width="40"
+                                   FontSize="40"
+                                   HorizontalAlignment="Right"></TextBlock>
+                        <StackPanel Orientation="Vertical"
+                                    Margin="20,0"
+                                    VerticalAlignment="Center">
+                            <TextBlock Text="{Binding LoginUserDto.UserName,StringFormat=用户名:{0}}" />
+                            <TextBlock Text="{Binding LoginUserDto.Account,StringFormat=账号:{0}}" />
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center">
+                        <TextBlock Text="我的项目"></TextBlock>
+                        <TextBlock Text="{Binding ProjectCount,StringFormat=项目数量:{0}}"></TextBlock>
+                    </StackPanel>
+                    <StackPanel  Grid.Column="1"
+                                 Orientation="Vertical"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center">
+                        <TextBlock Text="我的任务"></TextBlock>
+                        <TextBlock Text="任务数量"></TextBlock>
+                        <TextBlock Text="{Binding MyTaskCount}"></TextBlock>
+                    </StackPanel>
+                    <UniformGrid  Grid.Column="2"
+                                  Height="60"
+                                  Width="200"
+                                  Columns="3"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center">
+                        <StackPanel  Grid.Column="1"
+                                     Orientation="Vertical"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                            <TextBlock Text="&#xe6db;"
+                                       FontFamily="../Resources/#iconfont"
+                                       FontSize="40"
+                                       Height="40"
+                                       Width="40"
+                                       HorizontalAlignment="Center" />
+                            <TextBlock Text="{Binding CurrentDate}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel  Grid.Column="1"
+                                     Orientation="Vertical"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                            <TextBlock Text="&#xe60a;"
+                                       FontFamily="../Resources/#iconfont"
+                                       FontSize="40"
+                                       Height="40"
+                                       Width="40"
+                                       HorizontalAlignment="Center" />
+                            <TextBlock Text="℃"
+                                       HorizontalAlignment="Center"></TextBlock>
+                        </StackPanel>
+                        <StackPanel  Grid.Column="1"
+                                     Orientation="Vertical"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                            <TextBlock Text="&#xE67F;"
+                                       FontFamily="../Resources/#iconfont"
+                                       FontSize="40"
+                                       Height="40"
+                                       Width="40"
+                                       HorizontalAlignment="Center" />
+                            <TextBlock Text="{Binding CurrentDateHours}"></TextBlock>
+                        </StackPanel>
+                    </UniformGrid>
+                </Grid>
+                <Border Grid.Row="1"
+                        
+                                Margin="5"
+                                VerticalAlignment="Stretch">
+                    <StackPanel Margin="5">
+                        <TextBlock Text="最近访问"
+                                    Foreground="Black"></TextBlock>
+                        <!--<ui:DataGrid Grid.Row="1"
+                                     VerticalAlignment="Stretch"></ui:DataGrid>-->
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1"
+                        
+                        Grid.Column="1"
+                        Grid.RowSpan="2"
+                        Margin="5"
+                        CornerRadius="3"></Border>
+                <!--<ui:TitleBar Grid.Row="2"
+                             Margin="5"
+                             Title="最近动态"></ui:TitleBar>-->
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Accounts\AccountDto.cs" />
+	  <Compile Remove="Accounts\AccountPermissionsDto.cs" />
+	  <Compile Remove="Accounts\AccountUpdatePasswordDto.cs" />
+	  <Compile Remove="Auths\AuthLoginDto.cs" />
+	  <Compile Remove="Commons\DesensitizationConvter.cs" />
+	  <Compile Remove="Commons\DesensitizationUtil.cs" />
+	  <Compile Remove="Commons\IPagedList.cs" />
+	  <Compile Remove="Commons\PagedList.cs" />
+	  <Compile Remove="Commons\PageRequestDto.cs" />
+	  <Compile Remove="Commons\PageResponseDto.cs" />
+	  <Compile Remove="Commons\AjaxResponse.cs" />
+	  <Compile Remove="Commons\R_DtoBase.cs" />
+	  <Compile Remove="Family\CategoryCreateDto.cs" />
+	  <Compile Remove="Family\CategoryDto.cs" />
+	  <Compile Remove="Family\FamilyCategoryDto.cs" />
+	  <Compile Remove="Family\FamilyDto.cs" />
+	  <Compile Remove="Family\FamilyPutDto.cs" />
+	  <Compile Remove="Permissions\PermissionCreateDto.cs" />
+	  <Compile Remove="Permissions\PermissionDto.cs" />
+	  <Compile Remove="Permissions\PermissionUpdateDto.cs" />
+	  <Compile Remove="Project\ProjectCreateFolderDto.cs" />
+	  <Compile Remove="Project\ProjectFolderDto.cs" />
+	  <Compile Remove="Project\ProjectGetFoldersDto.cs" />
+	  <Compile Remove="Project\ProjectPostPutDto.cs" />
+	  <Compile Remove="Project\ProjectRequestDto.cs" />
+	  <Compile Remove="Project\ProjectResponseDto.cs" />
+	  <Compile Remove="Project\ProjectUploadFileDto.cs" />
+	  <Compile Remove="Project\UserProjectRequestDto.cs" />
+	  <Compile Remove="Roles\RoleCreateDto.cs" />
+	  <Compile Remove="Roles\RoleDto.cs" />
+	  <Compile Remove="Roles\RolePageRequestDto.cs" />
+	  <Compile Remove="Roles\RolePageResponseDto.cs" />
+	  <Compile Remove="Roles\RolePermissionDto.cs" />
+	  <Compile Remove="Roles\RoleUpdateDto.cs" />
+	  <Compile Remove="Users\UserAllDto.cs" />
+	  <Compile Remove="Users\UserCreateDto.cs" />
+	  <Compile Remove="Users\UserDto.cs" />
+	  <Compile Remove="Users\UserLoginedDto.cs" />
+	  <Compile Remove="Users\UserPageRequestDto.cs" />
+	  <Compile Remove="Users\UserPageResponseDto.cs" />
+	  <Compile Remove="Users\UserUpdateDto.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="12.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.20" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.26" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Revit.Shared.Entity\Revit.Shared.Entity.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Accounts\" />
+	  <Folder Include="Auths\" />
+	</ItemGroup>
+
+
+</Project>

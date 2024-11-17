@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="Revit.Application.Views.ProjectViews.ProjectMemberView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Revit.Application.Views.ProjectViews"
+             xmlns:vm="clr-namespace:Revit.Application.ViewModels.ProjectViewModels"
+             d:DataContext="{d:DesignInstance vm:ProjectMemberViewModel}"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d"
+             Width="auto"
+             Height="auto"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/BorderStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style  TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily"
+                        Value="../../Resources/#iconfont" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Border Style="{StaticResource  Border_Panel }">
+            <DataGrid Grid.Row="1"
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False"
+                      ItemsSource="{Binding  ProjectUsers}">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn.Header>
+                            <CheckBox />
+                        </DataGridCheckBoxColumn.Header>
+                    </DataGridCheckBoxColumn>
+                    <DataGridTextColumn Header="姓名"
+                                        Binding="{Binding FullName}"
+                                        Width="*" />
+                    <DataGridTextColumn Header="通行证"
+                                        Binding="{Binding  UserName}"
+                                        Width="*" />
+                    <DataGridTextColumn Header="手机号"
+                                        Binding="{Binding PhoneNumber}"
+                                        Width="*" />
+                    <DataGridTemplateColumn Header="操作"
+                                            Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="删除" Command="{Binding DeleteUserCommand}"  CommandParameter="{Binding }"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <Button Content="删除" Command="{Binding DeleteUserCommand}"  CommandParameter="{Binding }"></Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

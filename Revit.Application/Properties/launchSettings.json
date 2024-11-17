@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Rvit.Application": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

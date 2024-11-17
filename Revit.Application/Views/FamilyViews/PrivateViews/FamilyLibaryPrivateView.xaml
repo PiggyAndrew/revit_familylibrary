@@ -1,0 +1,65 @@
+﻿<UserControl
+    x:Class="Revit.Application.Views.FamilyViews.PrivateViews.FamilyLibaryPrivateView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Revit.Application.Views.FamilyViews"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:uiModel="clr-namespace:Revit.Application.Styles.UIModel"
+    xmlns:usercontrols="clr-namespace:Revit.Application.Views.FamilyViews.PublicViews"
+    xmlns:vm="clr-namespace:Revit.Application.ViewModels.FamilyViewModels"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Revit.Application;component/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <uiModel:RvtContentSection MainWindowHeader="个人空间">
+        <Grid Margin="0,5,0,0">
+            <TabControl
+                BorderBrush="Transparent"
+                Style="{StaticResource StTabConrolPortals}"
+                TabStripPlacement="Top">
+                <TabItem
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Header="团队空间">
+                    <ContentControl>
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="40" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Margin="0,5" Orientation="Horizontal">
+                                <Button
+                                    Margin="5,3"
+                                    Command="{Binding AddCategoryCommand}"
+                                    CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"
+                                    Content="新增类别" />
+                                <Button Margin="5,3" Content="修改类别" />
+                                <Button
+                                    Margin="5,3"
+                                    Command="{Binding DeleteCategoryCommand}"
+                                    CommandParameter="{Binding ElementName=treeView, Path=SelectedItem}"
+                                    Content="删除类别" />
+                            </StackPanel>
+                            <TreeView
+                                Name="treeView"
+                                Grid.Row="1"
+                                Margin="0,5"
+                                Padding="10"
+                                ItemsSource="{Binding Categories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        </Grid>
+                    </ContentControl>
+                </TabItem>
+
+                <TabItem Header="个人族空间" />
+            </TabControl>
+        </Grid>
+    </uiModel:RvtContentSection>
+</UserControl>
+

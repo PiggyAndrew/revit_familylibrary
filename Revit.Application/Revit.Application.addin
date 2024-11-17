@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+	<AddIn Type="Application">
+		<Name>Revit.Application</Name>
+		<Assembly>C:\ProgramData\Autodesk\Revit\Addins\2018\Revit.Application\Revit.Application.dll</Assembly>
+		<AddInId>07B258C2-0FE0-4891-827A-D54421B6C973</AddInId>
+		<FullClassName>Revit.Application.UI.Application</FullClassName>
+		<VendorId>1.0.0.0</VendorId>
+		<VendorDescription>www.yandong.website</VendorDescription>
+	</AddIn>
+</RevitAddIns>

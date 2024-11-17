@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="../CommonConfig.props"/>
+  <PropertyGroup>
+	  <PlatformTarget>x64</PlatformTarget>
+	  <TargetFramework>net472</TargetFramework>
+	  <LangVersion>9.0</LangVersion>
+      <UseWPF>True</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\Auth\**" />
+    <Compile Remove="Models\Configuration\**" />
+    <Compile Remove="Prism\**" />
+    <Compile Remove="Services\Chat\**" />
+    <Compile Remove="Services\Localization\**" />
+    <Compile Remove="Services\Session\**" />
+    <EmbeddedResource Remove="Models\Auth\**" />
+    <EmbeddedResource Remove="Models\Configuration\**" />
+    <EmbeddedResource Remove="Prism\**" />
+    <EmbeddedResource Remove="Services\Chat\**" />
+    <EmbeddedResource Remove="Services\Localization\**" />
+    <EmbeddedResource Remove="Services\Session\**" />
+    <None Remove="Models\Auth\**" />
+    <None Remove="Models\Configuration\**" />
+    <None Remove="Prism\**" />
+    <None Remove="Services\Chat\**" />
+    <None Remove="Services\Localization\**" />
+    <None Remove="Services\Session\**" />
+    <Page Remove="Models\Auth\**" />
+    <Page Remove="Models\Configuration\**" />
+    <Page Remove="Services\Chat\**" />
+    <Page Remove="Services\Localization\**" />
+    <Page Remove="Services\Session\**" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="6.0.10" />
+    <PackageReference Include="NLog" Version="5.1.2" />
+    <PackageReference Include="NLog.Schema" Version="5.1.2" />
+    <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Compile Remove="Converters\BoolToYesNoStrConverter.cs" />
+    <Compile Remove="Converters\InverseBoolToYesNoStrConverter.cs" />
+    <Compile Remove="Extensions\LocalTranslationHelper.cs" />
+    <Compile Remove="Extensions\Threading\ExceptionHandler.cs" />
+    <Compile Remove="Extensions\Threading\WebRequest.cs" />
+    <Compile Remove="ProgressBarService.cs" />
+    <Compile Remove="ViewModels\ValidatorDialogViewModel.cs" />
+    <Compile Remove="ViewModels\ValidatorViewModelBase.cs" />
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <Page Remove="Themes\FontIcons.xaml" />
+    <Page Remove="Themes\generic.xaml" />
+    <Page Remove="Themes\Templates\FileTemplate.xaml" />
+    <Page Remove="Themes\Templates\ImageTemplate.xaml" />
+    <Page Remove="Themes\Templates\TextTemplate.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Revit.Application.Client\Revit.Application.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Templates\LinkTemplate.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Themes\Templates\" />
+  </ItemGroup>
+
+
+</Project>

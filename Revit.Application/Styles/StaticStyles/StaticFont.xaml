@@ -1,0 +1,10 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <FontFamily x:Key="icon">../../Resources/#iconfont</FontFamily>
+    <s:String x:Key="HomePage">&#xe640;</s:String>
+    <s:String x:Key="PreviousPage">&#xe626;</s:String>
+    <s:String x:Key="NextPage">&#xe628;</s:String>
+    <s:String x:Key="EndPage">&#xe67e;</s:String>
+</ResourceDictionary>

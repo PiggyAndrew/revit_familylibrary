@@ -1,0 +1,139 @@
+﻿<UserControl
+    x:Class="Revit.Application.Views.FamilyViews.Public.DialogViews.AuditingFamilyDialogView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:category="clr-namespace:Revit.Application.Models.Category"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:families="clr-namespace:Revit.Families"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:vm="clr-namespace:Revit.Application.ViewModels.FamilyViewModels.PublicViewModels.DialogViewModels"
+    Width="600"
+    Height="600"
+    d:DataContext="{d:DesignInstance vm:AuditingFamilyDialogViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Revit.Application;component/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style
+                x:Key="{x:Type Button}"
+                BasedOn="{StaticResource ButtonDefault}"
+                TargetType="Button">
+                <Setter Property="HorizontalAlignment" Value="Stretch" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <hc:Carousel AutoRun="False" IsCenter="True">
+            <Image Source="{Binding AuditingFamily.MainPhotoBytes, Converter={StaticResource Bytes2BitmapImageConverter}}" />
+        </hc:Carousel>
+        <TabControl Grid.ColumnSpan="2">
+            <TabItem Header="族基本信息确认">
+                <Grid>
+                    <StackPanel Margin="10" Orientation="Vertical">
+                        <hc:TextBox
+                            Margin="5,0"
+                            hc:InfoElement.Placeholder="请确认族名称无误，并必须提交该值。"
+                            hc:InfoElement.Title="族名称："
+                            ShowClearButton="True"
+                            Text="{Binding AuditingFamily.Name}" />
+                        <hc:TextBox
+                            Margin="5,0"
+                            hc:InfoElement.Title="上传人员："
+                            IsEnabled="False"
+                            Text="{Binding AuditingFamily.Creator}" />
+                        <hc:TextBox
+                            Margin="5,0"
+                            hc:InfoElement.Title="创建日期："
+                            IsEnabled="False"
+                            Text="{Binding AuditingFamily.CreationTime}" />
+                        <hc:TextBox
+                            Margin="5,0"
+                            hc:InfoElement.Title="族文件大小："
+                            IsEnabled="False"
+                            Text="{Binding AuditingFamily.FileBytesSize, Converter={StaticResource Long2FileSizeConverter}}" />
+                        <hc:TextBox
+                            Margin="5,0"
+                            hc:InfoElement.Title="族文件版本："
+                            IsEnabled="False"
+                            Text="{Binding AuditingFamily.Version, StringFormat={}{0}.0}" />
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox Margin="0,5" Header="审核意见">
+                                <RichTextBox
+                                    MinHeight="150"
+                                    Margin="5"
+                                    BorderBrush="Transparent"
+                                    Style="{StaticResource RichTextBoxBaseStyle}" />
+                            </GroupBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="专业类别及标签选择">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Header="族类别确认">
+                        <TreeView Margin="0,5" ItemsSource="{Binding Categories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type category:CategoryListModel}" ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Margin="5,0" IsChecked="{Binding IsChecked}" />
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="族标签确认">
+                        <TreeView Margin="0,5" ItemsSource="{Binding Tags, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type category:CategoryListModel}" ItemsSource="{Binding Children, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox Margin="5,0" IsChecked="{Binding IsChecked}" />
+                                        <TextBlock Text="{Binding Name}" />
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <UniformGrid
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            VerticalAlignment="Bottom"
+            Columns="3">
+            <Button
+                Margin="3"
+                Command="{Binding SaveCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                Content="拒绝通过" />
+            <Button
+                Margin="3"
+                Command="{Binding SaveCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                Content="返回修改" />
+            <Button
+                Margin="3"
+                Command="{Binding SaveCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content}"
+                Content="通过" />
+        </UniformGrid>
+    </Grid>
+</UserControl>

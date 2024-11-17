@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.WebAPI", "Revit.WebAPI\Revit.WebAPI.csproj", "{DBC568F4-2732-4AE0-99B5-978D2E51AB2B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.DbMigrator", "Revit.DbMigrator\Revit.DbMigrator.csproj", "{7901EE9E-52A0-453C-AA3C-B62B4CCB13AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.EntityFrameworkCore", "Revit.EntityFrameworkCore\Revit.EntityFrameworkCore.csproj", "{0EDC2043-5A7D-4CC2-8797-951A96DA44AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.Service", "Revit.Service\Revit.Service.csproj", "{B00B3341-A573-4B7F-8055-983322291D77}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.Repository", "Revit.Repository\Revit.Repository.csproj", "{19878FF5-E4AB-48C8-B842-169808CA7004}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.Shared.Entity", "Revit.Shared.Entity\Revit.Shared.Entity.csproj", "{BF5000A2-ADB9-4674-B951-F6C7352BE443}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Revit.Entity", "Revit.Entity\Revit.Entity.csproj", "{4C1D0B8B-C182-42BD-AD5F-5E858B2E5570}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBC568F4-2732-4AE0-99B5-978D2E51AB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC568F4-2732-4AE0-99B5-978D2E51AB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC568F4-2732-4AE0-99B5-978D2E51AB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC568F4-2732-4AE0-99B5-978D2E51AB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7901EE9E-52A0-453C-AA3C-B62B4CCB13AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7901EE9E-52A0-453C-AA3C-B62B4CCB13AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7901EE9E-52A0-453C-AA3C-B62B4CCB13AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7901EE9E-52A0-453C-AA3C-B62B4CCB13AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EDC2043-5A7D-4CC2-8797-951A96DA44AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EDC2043-5A7D-4CC2-8797-951A96DA44AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EDC2043-5A7D-4CC2-8797-951A96DA44AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EDC2043-5A7D-4CC2-8797-951A96DA44AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B00B3341-A573-4B7F-8055-983322291D77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B00B3341-A573-4B7F-8055-983322291D77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B00B3341-A573-4B7F-8055-983322291D77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B00B3341-A573-4B7F-8055-983322291D77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19878FF5-E4AB-48C8-B842-169808CA7004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19878FF5-E4AB-48C8-B842-169808CA7004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19878FF5-E4AB-48C8-B842-169808CA7004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19878FF5-E4AB-48C8-B842-169808CA7004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF5000A2-ADB9-4674-B951-F6C7352BE443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF5000A2-ADB9-4674-B951-F6C7352BE443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF5000A2-ADB9-4674-B951-F6C7352BE443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF5000A2-ADB9-4674-B951-F6C7352BE443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C1D0B8B-C182-42BD-AD5F-5E858B2E5570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C1D0B8B-C182-42BD-AD5F-5E858B2E5570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C1D0B8B-C182-42BD-AD5F-5E858B2E5570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C1D0B8B-C182-42BD-AD5F-5E858B2E5570}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48968AF4-FCB8-49E5-BF48-639728F35EB4}
+	EndGlobalSection
+EndGlobal

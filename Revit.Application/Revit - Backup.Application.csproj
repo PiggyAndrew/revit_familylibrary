@@ -1,0 +1,206 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<!--<Target Name="CopeyAddin" BeforeTargets="PostBuildEvent" Condition="'$(Configuration)'=='RVT_18'">
+		<ItemGroup>
+			<SourceFiles Include="$(ProjectDir)$(OutDir)\**\*.*"></SourceFiles>
+		</ItemGroup>
+		
+		<Copy SourceFiles="$(ProjectDir)\Revit.Application.addin" DestinationFolder="C:\ProgramData\Autodesk\Revit\Addins\$(RvtVersion)"></Copy>
+		<Copy SourceFiles="@(SourceFiles)" DestinationFiles="@(SourceFiles->'C:\ProgramData\Autodesk\Revit\Addins\$(RvtVersion)\Revit.Application\%(RecursiveDir)%(Filename)%(Extension)')"></Copy>
+	</Target>-->
+	
+	<ItemGroup>
+		<UserControl Update="Properties\BorderStyle.xaml">
+			<Generator>MSBuild:Compile</Generator>
+			<SubType>Designer</SubType>
+			<ContainsDesignTimeResources>true</ContainsDesignTimeResources>
+		</UserControl>
+	</ItemGroup>
+
+
+	<PropertyGroup>
+		<UseWPF>true</UseWPF>
+		<XamlDebuggingInformation>True</XamlDebuggingInformation>
+		<UseWindowsForms>true</UseWindowsForms>
+		<PlatformTarget>x64</PlatformTarget>
+		<LangVersion>10</LangVersion>
+		<Configurations>Debug;Release;RVT_19;RVT_17;RVT_20;RVT_18</Configurations>
+		<Nullable>disable</Nullable>
+		<Optimize>false</Optimize>
+		<TargetFramework>net472</TargetFramework>
+		<WarningLevel>0</WarningLevel>
+		<XamlDebuggingInformation>True</XamlDebuggingInformation>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+		<RvtVersion>2018</RvtVersion>
+		<TargetFramework>net472</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='RVT_18'">
+		<StartAction>Program</StartAction>
+		<RvtVersion>2018</RvtVersion>
+		<StartProgram>D:\Program Files\Autodesk\Revit 2018\Revit.exe</StartProgram>
+		<TargetFramework>net472</TargetFramework>
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Models\Auditlogs\**" />
+		<Compile Remove="Models\Dashboard\**" />
+		<Compile Remove="Models\DynamicProperty\**" />
+		<Compile Remove="Models\Edition\**" />
+		<Compile Remove="Models\Filters\**" />
+		<Compile Remove="Models\Language\**" />
+		<Compile Remove="Models\Organizations\**" />
+		<Compile Remove="Models\Roles\**" />
+		<Compile Remove="Models\Tenants\**" />
+		<Compile Remove="Models\Update\**" />
+		<Compile Remove="Services\Features\**" />
+		<Compile Remove="Services\Notification\**" />
+		<Compile Remove="Services\Sessions\**" />
+		<Compile Remove="Services\Themes\**" />
+		<Compile Remove="Services\Update\**" />
+		<Compile Remove="ViewModels\FamilyViewModels\PrivateViewModels\**" />
+		<Compile Remove="ViewModels\GenernaDialogViewModels\**" />
+		<EmbeddedResource Remove="Models\Auditlogs\**" />
+		<EmbeddedResource Remove="Models\Dashboard\**" />
+		<EmbeddedResource Remove="Models\DynamicProperty\**" />
+		<EmbeddedResource Remove="Models\Edition\**" />
+		<EmbeddedResource Remove="Models\Filters\**" />
+		<EmbeddedResource Remove="Models\Language\**" />
+		<EmbeddedResource Remove="Models\Organizations\**" />
+		<EmbeddedResource Remove="Models\Roles\**" />
+		<EmbeddedResource Remove="Models\Tenants\**" />
+		<EmbeddedResource Remove="Models\Update\**" />
+		<EmbeddedResource Remove="Services\Features\**" />
+		<EmbeddedResource Remove="Services\Notification\**" />
+		<EmbeddedResource Remove="Services\Sessions\**" />
+		<EmbeddedResource Remove="Services\Themes\**" />
+		<EmbeddedResource Remove="Services\Update\**" />
+		<EmbeddedResource Remove="ViewModels\FamilyViewModels\PrivateViewModels\**" />
+		<EmbeddedResource Remove="ViewModels\GenernaDialogViewModels\**" />
+		<None Remove="Models\Auditlogs\**" />
+		<None Remove="Models\Dashboard\**" />
+		<None Remove="Models\DynamicProperty\**" />
+		<None Remove="Models\Edition\**" />
+		<None Remove="Models\Filters\**" />
+		<None Remove="Models\Language\**" />
+		<None Remove="Models\Organizations\**" />
+		<None Remove="Models\Roles\**" />
+		<None Remove="Models\Tenants\**" />
+		<None Remove="Models\Update\**" />
+		<None Remove="Services\Features\**" />
+		<None Remove="Services\Notification\**" />
+		<None Remove="Services\Sessions\**" />
+		<None Remove="Services\Themes\**" />
+		<None Remove="Services\Update\**" />
+		<None Remove="ViewModels\FamilyViewModels\PrivateViewModels\**" />
+		<None Remove="ViewModels\GenernaDialogViewModels\**" />
+		<Page Remove="Models\Auditlogs\**" />
+		<Page Remove="Models\Dashboard\**" />
+		<Page Remove="Models\DynamicProperty\**" />
+		<Page Remove="Models\Edition\**" />
+		<Page Remove="Models\Filters\**" />
+		<Page Remove="Models\Language\**" />
+		<Page Remove="Models\Organizations\**" />
+		<Page Remove="Models\Roles\**" />
+		<Page Remove="Models\Tenants\**" />
+		<Page Remove="Models\Update\**" />
+		<Page Remove="Services\Features\**" />
+		<Page Remove="Services\Notification\**" />
+		<Page Remove="Services\Sessions\**" />
+		<Page Remove="Services\Themes\**" />
+		<Page Remove="Services\Update\**" />
+		<Page Remove="ViewModels\FamilyViewModels\PrivateViewModels\**" />
+		<Page Remove="ViewModels\GenernaDialogViewModels\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Services\Account\AccountService.cs" />
+	  <Compile Remove="Services\Account\AccountStorageService.cs" />
+	  <Compile Remove="Services\Account\IAccountService.cs" />
+	  <Compile Remove="Services\Account\UserConfigurationManager.cs" />
+	  <Compile Remove="Services\Navigation\NavigationSingleMenuService.cs" />
+	  <Compile Remove="Services\NotificationService.cs" />
+	  <Compile Remove="Validations\EditionValidator.cs" />
+	  <Compile Remove="Validations\OrganizationUnitValidator.cs" />
+	  <Compile Remove="Validations\SettingsValidator.cs" />
+	  <Compile Remove="Validations\TenantValidator.cs" />
+	  <Compile Remove="Validations\VersionValidator.cs" />
+	  <Compile Remove="ViewModels\TestViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\iconfont.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Remove="Themes\Border.xaml" />
+	  <Page Remove="Themes\Button.xaml" />
+	  <Page Remove="Themes\DataGrid.xaml" />
+	  <Page Remove="Themes\Generic.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="HandyControl" Version="3.2.0" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Compile Update="Properties\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<Compile Update="Properties\Settings.Designer.cs">
+			<DesignTimeSharedInput>True</DesignTimeSharedInput>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Settings.settings</DependentUpon>
+		</Compile>
+		<Compile Update="Views\FamilyViews\PublicViews\DialogViews\AddFamilyLibraryTagsDialogView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\FamilyViews\PublicViews\FamilyLibaryPublicUploadView.xaml.cs">
+			<SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\FamilyViews\PublicViews\FamilyLibraryTagsView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+		<Compile Update="Views\UserViews\DialogViews\AddRoleDialogView.xaml.cs">
+		  <SubType>Code</SubType>
+		</Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Properties\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Windows" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Properties\Settings.settings">
+			<Generator>SettingsSingleFileGenerator</Generator>
+			<LastGenOutput>Settings.Designer.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Revit.Mvvm\Revit.Mvvm.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\iconfont.ttf">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Resource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Resources\新文件夹\" />
+	</ItemGroup>
+
+</Project>

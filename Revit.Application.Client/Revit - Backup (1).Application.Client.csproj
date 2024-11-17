@@ -1,0 +1,95 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <RootNamespace>Revit</RootNamespace>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
+	<LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Authorization\Users\Delegation\**" />
+    <Compile Remove="Authorization\Users\Profile\**" />
+    <Compile Remove="Caching\**" />
+    <Compile Remove="Category\**" />
+    <Compile Remove="Chat\**" />
+    <Compile Remove="Common\**" />
+    <Compile Remove="Configuration\**" />
+    <Compile Remove="Demo\**" />
+    <Compile Remove="DynamicEntityProperties\**" />
+    <Compile Remove="Edition\**" />
+    <Compile Remove="Friendships\**" />
+    <Compile Remove="Localization\**" />
+    <Compile Remove="MultiTenancy\**" />
+    <Compile Remove="Notifications\**" />
+    <Compile Remove="Organizations\**" />
+    <Compile Remove="Services\**" />
+    <Compile Remove="Sessions\**" />
+    <Compile Remove="Tenants\**" />
+    <Compile Remove="Version\**" />
+    <Compile Remove="WebServices\**" />
+    <EmbeddedResource Remove="Authorization\Users\Delegation\**" />
+    <EmbeddedResource Remove="Authorization\Users\Profile\**" />
+    <EmbeddedResource Remove="Caching\**" />
+    <EmbeddedResource Remove="Category\**" />
+    <EmbeddedResource Remove="Chat\**" />
+    <EmbeddedResource Remove="Common\**" />
+    <EmbeddedResource Remove="Configuration\**" />
+    <EmbeddedResource Remove="Demo\**" />
+    <EmbeddedResource Remove="DynamicEntityProperties\**" />
+    <EmbeddedResource Remove="Edition\**" />
+    <EmbeddedResource Remove="Friendships\**" />
+    <EmbeddedResource Remove="Localization\**" />
+    <EmbeddedResource Remove="MultiTenancy\**" />
+    <EmbeddedResource Remove="Notifications\**" />
+    <EmbeddedResource Remove="Organizations\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <EmbeddedResource Remove="Sessions\**" />
+    <EmbeddedResource Remove="Tenants\**" />
+    <EmbeddedResource Remove="Version\**" />
+    <EmbeddedResource Remove="WebServices\**" />
+    <None Remove="Authorization\Users\Delegation\**" />
+    <None Remove="Authorization\Users\Profile\**" />
+    <None Remove="Caching\**" />
+    <None Remove="Category\**" />
+    <None Remove="Chat\**" />
+    <None Remove="Common\**" />
+    <None Remove="Configuration\**" />
+    <None Remove="Demo\**" />
+    <None Remove="DynamicEntityProperties\**" />
+    <None Remove="Edition\**" />
+    <None Remove="Friendships\**" />
+    <None Remove="Localization\**" />
+    <None Remove="MultiTenancy\**" />
+    <None Remove="Notifications\**" />
+    <None Remove="Organizations\**" />
+    <None Remove="Services\**" />
+    <None Remove="Sessions\**" />
+    <None Remove="Tenants\**" />
+    <None Remove="Version\**" />
+    <None Remove="WebServices\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Authorization\Accounts\ProxyAccountAppService.cs" />
+    <Compile Remove="Authorization\Accounts\ProxyTokenAuthControllerService.cs" />
+    <Compile Remove="Authorization\Users\UserLinkAppService.cs" />
+    <Compile Remove="Authorization\Users\UserLoginAppService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Abp.Web.Common" Version="7.3.0" />
+    <PackageReference Include="Flurl" Version="3.0.2" />
+    <PackageReference Include="Flurl.Http" Version="3.2.0" />
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Gitspace\APP.WebAPI.FamilyLibrary\Revit.Shared.Entity\Revit.Shared.Entity.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="NETStandard.Library" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApiClient\Models\" />
+  </ItemGroup>
+</Project>

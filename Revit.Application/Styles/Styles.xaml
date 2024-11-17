@@ -1,0 +1,401 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:Revit.Application.Styles.UIModel"
+    xmlns:converter="clr-namespace:Revit.Application.Styles.Converter"
+    xmlns:converters="clr-namespace:Revit.Application.Converter"
+    xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml" />
+        <ResourceDictionary Source="./BorderStyles.xaml" />
+        <ResourceDictionary Source="./TextBlock.xaml" />
+        <ResourceDictionary Source="./ButtonStyles.xaml" />
+        <ResourceDictionary Source="./DefaultStyles.xaml" />
+        <ResourceDictionary Source="./ListStyles.xaml" />
+        <ResourceDictionary Source="./ComboboxStyles.xaml" />
+        <ResourceDictionary Source="./TextBoxStyles.xaml" />
+        <ResourceDictionary Source="./TabControlStyles.xaml" />
+        <ResourceDictionary Source="./StaticStyles.xaml" />
+        <ResourceDictionary Source="./StaticStyles/StaticColor.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <converters:Path2UriConverter x:Key="Path2UriConverter" />
+    <converters:Bytes2BitmapImageConverter x:Key="Bytes2BitmapImageConverter" />
+    <converters:Uri2BitMapConverter x:Key="Uri2BitMapConverter" />
+    <converter:IntToStringConverter x:Key="IntToStringConverter" />
+
+
+    <Style TargetType="control:CascadePicker">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="120" />
+        <Setter Property="BorderBrush" Value="#dcdfe6" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="Foreground" Value="#606266" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="control:CascadePicker">
+                    <ControlTemplate.Resources>
+                        <hc:String2VisibilityConverter x:Key="String2VisibilityConverter" />
+                        <hc:String2VisibilityReConverter x:Key="String2VisibilityReConverter" />
+                        <converters:String2BooleanConverter x:Key="String2BooleanConverter" />
+                        <!--<converter:CascaderPopupWidthConverter x:Key="CascaderPopupWidthConverter"/>-->
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Border
+                            x:Name="bd1"
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <Grid Margin="3,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+                                <Path
+                                    x:Name="path1"
+                                    Grid.Column="2"
+                                    Width="14"
+                                    Data="M512 745.8c-34.1 0-66.9-12.3-92.6-34.7L16.6 362.5c-20-17.3-22.2-47.7-4.9-67.7 17.3-20 47.7-22.2 67.7-4.9l403.1 348.8c16.8 14.7 42.2 14.7 59 0l0.2-0.2 402.9-348.7c20-17.3 50.4-15.2 67.7 4.9 17.3 20 15.2 50.4-4.9 67.7L604.6 711.1c-25.7 22.4-58.5 34.7-92.6 34.7z"
+                                    Fill="{TemplateBinding BorderBrush}"
+                                    RenderTransformOrigin="0.5,0.5"
+                                    Stretch="Uniform">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                            <SkewTransform />
+                                            <RotateTransform x:Name="RotateTransform" Angle="0" />
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <Button
+                                    Name="showCleanButton"
+                                    Grid.Column="1"
+                                    Width="18"
+                                    Height="18"
+                                    Visibility="{Binding ElementName=textBlock, Path=Text, Converter={StaticResource String2VisibilityConverter}}">
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border
+                                                Name="bd_close"
+                                                Width="14"
+                                                Height="14"
+                                                Background="#dcdfe6"
+                                                CornerRadius="7">
+                                                <!--<wpf:PackIcon Kind="Close" VerticalAlignment="Center" Width="12" HorizontalAlignment="Center"/>-->
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Setter TargetName="bd_close" Property="Background" Value="#606266" />
+                                                </Trigger>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="bd_close" Property="Background" Value="#a9a9a9" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <TextBlock
+                                    Margin="6,0,0,0"
+                                    VerticalAlignment="Center"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="#c0c4d1"
+                                    Text="请选择过滤标签"
+                                    Visibility="{Binding ElementName=textBlock, Path=Text, Converter={StaticResource String2VisibilityReConverter}}" />
+
+                                <TextBlock
+                                    x:Name="textBlock"
+                                    VerticalAlignment="Center"
+                                    FontSize="{TemplateBinding FontSize}"
+                                    Foreground="{TemplateBinding Foreground}"
+                                    TextTrimming="CharacterEllipsis"
+                                    ToolTip="{Binding ElementName=textBlock, Path=Text}"
+                                    ToolTipService.IsEnabled="{Binding ElementName=textBlock, Path=Text, Converter={StaticResource String2BooleanConverter}}" />
+                                <Popup
+                                    x:Name="pop"
+                                    MinWidth="{TemplateBinding Width}"
+                                    AllowsTransparency="True"
+                                    HorizontalOffset="-6"
+                                    IsOpen="{TemplateBinding IsDropDown}"
+                                    Placement="Bottom"
+                                    PlacementTarget="{Binding ElementName=bd1}"
+                                    PopupAnimation="Slide"
+                                    StaysOpen="True"
+                                    VerticalOffset="-6">
+                                    <control:CascaderItem
+                                        x:Name="cascaderItem"
+                                        IsMultipleChoose="{TemplateBinding IsMultipleChoose}"
+                                        ItemsSource="{TemplateBinding ItemsSource}" />
+                                </Popup>
+                            </Grid>
+                        </Border>
+
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#c0c4cc" />
+                        </Trigger>
+
+                        <Trigger Property="IsDropDown" Value="True">
+                            <Setter Property="BorderBrush" Value="#409eff" />
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RotateTransform"
+                                            Storyboard.TargetProperty="Angle"
+                                            To="180"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="RotateTransform"
+                                            Storyboard.TargetProperty="Angle"
+                                            To="0"
+                                            Duration="0:0:0.2" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="control:CascaderItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="control:CascaderItem">
+                    <Border
+                        Height="120"
+                        Margin="8"
+                        Background="White"
+                        BorderBrush="#dcdfe6"
+                        BorderThickness="1"
+                        CornerRadius="4">
+                        <StackPanel Name="sp_path" Orientation="Horizontal" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="control:CascaderInnerList">
+        <Setter Property="IsMultipleChoose" Value="False" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="control:CascaderInnerList">
+                    <ListBox Name="listBox" ItemsSource="{TemplateBinding ItemsSource}">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+                                <Setter Property="Margin" Value="3,1" />
+                                <Setter Property="Padding" Value="6,8" />
+                                <Setter Property="MinWidth" Value="60" />
+                                <Setter Property="Focusable" Value="True" />
+
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="ListBoxItem">
+                                            <ControlTemplate.Resources>
+                                                <hc:Object2VisibilityConverter x:Key="Object2VisibilityConverter" />
+                                                <converters:Boolean2VisibilityConverter x:Key="Boolean2VisibilityConverter" />
+                                            </ControlTemplate.Resources>
+                                            <Border x:Name="bd1" Padding="{TemplateBinding Padding}">
+                                                <Grid
+                                                    x:Name="gd1"
+                                                    VerticalAlignment="Center"
+                                                    Background="Transparent">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition Width="auto" />
+                                                        <ColumnDefinition Width="*" MinWidth="20" />
+                                                        <ColumnDefinition Width="auto" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <CheckBox
+                                                        Name="checkbox"
+                                                        Margin="0,0,4,0"
+                                                        Command="{x:Static control:CascaderInnerList.ClickCommand}"
+                                                        CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}"
+                                                        Focusable="False"
+                                                        IsChecked="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                                        Visibility="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type control:CascaderInnerList}}, Path=IsMultipleChoose, Converter={StaticResource Boolean2VisibilityConverter}}" />
+                                                    <TextBlock
+                                                        Name="tb1"
+                                                        Grid.Column="1"
+                                                        VerticalAlignment="Center"
+                                                        FontSize="14"
+                                                        Tag="1"
+                                                        Text="{Binding Name}"
+                                                        TextAlignment="Center" />
+                                                    <Path
+                                                        Name="path"
+                                                        Grid.Column="3"
+                                                        Width="11"
+                                                        Height="11"
+                                                        Data="M767.055482 512.122299a51.11001 51.11001 0 0 1-12.412431 36.50715L329.699826 1010.51791a41.618151 41.618151 0 0 1-61.332012 0 51.11001 51.11001 0 0 1 0-66.077942l398.658077-432.536712L268.367814 79.29353a51.11001 51.11001 0 0 1 0-65.71287 41.618151 41.618151 0 0 1 61.332012 0l424.943225 461.88846a51.11001 51.11001 0 0 1 12.412431 36.50715v0.146029z"
+                                                        Fill="Black"
+                                                        Stretch="Uniform"
+                                                        Visibility="{Binding Children, Converter={StaticResource Object2VisibilityConverter}}" />
+                                                </Grid>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="bd1" Property="Background" Value="#f5f7fa" />
+                                                </Trigger>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter TargetName="tb1" Property="Foreground" Value="#40a9fe" />
+                                                    <Setter TargetName="path" Property="Fill" Value="#40a9fe" />
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <Style x:Key="{x:Type control:DataPager}" TargetType="{x:Type control:DataPager}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type control:DataPager}">
+                    <Grid>
+                        <StackPanel
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <ComboBox
+                                x:Name="COMBOX_PAGESIZE"
+                                Width="100"
+                                Margin="10,0"
+                                Padding="5"
+                                VerticalAlignment="Center"
+                                VerticalContentAlignment="Center">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock VerticalAlignment="Center" Text="{Binding DisplayText}" />
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBlock VerticalAlignment="Center" Text="总页数：" />
+                            <TextBlock
+                                Margin="0,0,10,0"
+                                VerticalAlignment="Center"
+                                Text="{TemplateBinding PageCount,
+                                                       Converter={StaticResource IntToStringConverter}}" />
+                            <Button
+                                x:Name="HomePage"
+                                Padding="5,0"
+                                Content="{DynamicResource HomePage}"
+                                FontSize="18"
+                                Style="{StaticResource Button_Icon}" />
+                            <Button
+                                x:Name="PreviousPage"
+                                Margin="5,0"
+                                Padding="5,0"
+                                Content="{DynamicResource PreviousPage}"
+                                Style="{StaticResource Button_Icon}" />
+                            <ListBox
+                                x:Name="ItemsControl"
+                                VerticalAlignment="Center"
+                                SelectionMode="Single">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="Padding" Value="0" />
+                                        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListBoxItem">
+                                                    <Grid>
+                                                        <Border
+                                                            x:Name="PART_Border"
+                                                            Width="25"
+                                                            Height="25"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                                            CornerRadius="12.5"
+                                                            Opacity="0.7"
+                                                            Style="{StaticResource Border_Normal}">
+                                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                        </Border>
+                                                    </Grid>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource br_HeaderGray}" />
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalContentAlignment="Center"
+                                            Background="Transparent"
+                                            BorderBrush="Transparent"
+                                            Command="{Binding ClickCommand}"
+                                            CommandParameter="{Binding}"
+                                            Content="{Binding Index, Converter={StaticResource IntToStringConverter}}"
+                                            Style="{x:Null}" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <Button
+                                x:Name="NextPage"
+                                Margin="5,0"
+                                Padding="5,0"
+                                Content="{DynamicResource NextPage}"
+                                Style="{StaticResource Button_Icon}" />
+                            <Button
+                                x:Name="EndPage"
+                                Padding="5,0"
+                                Content="{DynamicResource EndPage}"
+                                FontSize="18"
+                                Style="{StaticResource Button_Icon}" />
+                        </StackPanel>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

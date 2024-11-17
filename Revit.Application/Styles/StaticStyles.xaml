@@ -1,0 +1,28 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="clr-namespace:Revit.Application.Styles.Converter"
+    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="./StaticStyles/StaticColor.xaml" />
+        <ResourceDictionary Source="./StaticStyles/StaticFont.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+
+    <DropShadowEffect
+        x:Key="EffectDropShadowPortal"
+        BlurRadius="4"
+        Direction="-90"
+        Opacity="0.2"
+        ShadowDepth="2" />
+    <DropShadowEffect
+        x:Key="EffectDropShadowNoOffset"
+        BlurRadius="4"
+        Direction="0"
+        Opacity="0.2"
+        ShadowDepth="0" />
+    <Geometry x:Key="GeomDownArrow">M0,0 L8,0 L4,4 z</Geometry>
+    <converter:ConvMultiply x:Key="ConvMultiply" />
+    <converter:StoryboardConverter x:Key="StoryboardConverter" />
+</ResourceDictionary>

@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<Import Project="../CommonConfig.props"/>
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>Revit</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Authentication\**" />
+	  <Compile Remove="Chat\**" />
+	  <Compile Remove="Contants\**" />
+	  <Compile Remove="Editions\**" />
+	  <Compile Remove="Friendships\**" />
+	  <Compile Remove="MultiTenancy\**" />
+	  <Compile Remove="Notifications\**" />
+	  <Compile Remove="Security\**" />
+	  <Compile Remove="Storage\**" />
+	  <Compile Remove="Validation\**" />
+	  <Compile Remove="Version\**" />
+	  <Compile Remove="Webhooks\**" />
+	  <EmbeddedResource Remove="Authentication\**" />
+	  <EmbeddedResource Remove="Chat\**" />
+	  <EmbeddedResource Remove="Contants\**" />
+	  <EmbeddedResource Remove="Editions\**" />
+	  <EmbeddedResource Remove="Friendships\**" />
+	  <EmbeddedResource Remove="MultiTenancy\**" />
+	  <EmbeddedResource Remove="Notifications\**" />
+	  <EmbeddedResource Remove="Security\**" />
+	  <EmbeddedResource Remove="Storage\**" />
+	  <EmbeddedResource Remove="Validation\**" />
+	  <EmbeddedResource Remove="Version\**" />
+	  <EmbeddedResource Remove="Webhooks\**" />
+	  <None Remove="Authentication\**" />
+	  <None Remove="Chat\**" />
+	  <None Remove="Contants\**" />
+	  <None Remove="Editions\**" />
+	  <None Remove="Friendships\**" />
+	  <None Remove="MultiTenancy\**" />
+	  <None Remove="Notifications\**" />
+	  <None Remove="Security\**" />
+	  <None Remove="Storage\**" />
+	  <None Remove="Validation\**" />
+	  <None Remove="Version\**" />
+	  <None Remove="Webhooks\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Remove="AppFrameworkCoreSharedModule.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Abp" Version="7.3.0" />
+		<PackageReference Include="Abp.Zero.Common" Version="7.3.0" />
+	</ItemGroup>
+</Project>

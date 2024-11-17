@@ -1,0 +1,29 @@
+<Project >
+
+	<ItemGroup Condition="'$(Configuration)'=='RVT_18_RELEASE'">
+		<PackageReference Include="Tuna.Revit.Extension" Version="2018.2.*" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)'=='RVT_25_RELEASE'">
+		<PackageReference Include="Tuna.Revit.Extension" Version="2025.*.*" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='RVT_18_RELEASE'">
+		<RvtVersion>2018</RvtVersion>
+		<TargetFramework>net472</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='RVT_25_RELEASE'">
+		<RvtVersion>2025</RvtVersion>
+		<TargetFramework>windows-8.0</TargetFramework>
+	</PropertyGroup>
+
+	<Target Name="CopeyAddin" BeforeTargets="PostBuildEvent" Condition="'$(Configuration)'=='RVT_18_DEBUG'">
+		<ItemGroup>
+			<SourceFiles Include="$(ProjectDir)$(OutDir)\**\*.*"></SourceFiles>
+		</ItemGroup>
+		
+		<Copy SourceFiles="$(ProjectDir)\Revit.Application.addin" DestinationFolder="C:\ProgramData\Autodesk\Revit\Addins\$(RvtVersion)"></Copy>
+		<Copy SourceFiles="@(SourceFiles)" DestinationFiles="@(SourceFiles->'C:\ProgramData\Autodesk\Revit\Addins\$(RvtVersion)\Revit.Application\%(RecursiveDir)%(Filename)%(Extension)')"></Copy>
+	</Target>
+</Project>
