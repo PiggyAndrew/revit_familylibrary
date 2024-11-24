@@ -25,10 +25,5 @@ namespace Revit.Shared
         {
             containerRegistry.AddSharedServices();
         }
-
-        protected override DependencyObject CreateShell()
-        {
-            return null;
-        }
     }
 }
