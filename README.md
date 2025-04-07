@@ -2,7 +2,6 @@
 
 <div align="center">
 
-![Logo](assets/images/logo.png)
 
 [![.NET](https://img.shields.io/badge/.NET%206.0-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
 [![WPF](https://img.shields.io/badge/WPF-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/)
