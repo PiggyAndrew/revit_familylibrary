@@ -21,6 +21,11 @@ namespace Revit.Shared
             
         }
 
+        protected override DependencyObject CreateShell()
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.AddSharedServices();

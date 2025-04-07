@@ -21,8 +21,6 @@ namespace Revit.Entity
 
         public static bool IsDebug { get; set; } = false;
 
-
-
         private static IContainerExtension _containerExtension;
         public const  string HOST= "http://localhost:5177/";
 

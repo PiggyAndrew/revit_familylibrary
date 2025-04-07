@@ -1,40 +1,109 @@
 # Revit Net FamilyLibrary
 
-<aside>
-💡 **Notion Tip:** Use this template to facilitate efficient collaboration and project management among your team. Share this page with each member of your team.
+<div align="center">
 
-</aside>
+![Logo](assets/images/logo.png)
 
-[Team](Team%20161e46a30ad2811f9d10f27c0905bbe2.csv)
+[![.NET](https://img.shields.io/badge/.NET%206.0-512BD4?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
+[![WPF](https://img.shields.io/badge/WPF-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/)
+[![WebAPI](https://img.shields.io/badge/WebAPI-5C2D91?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 
-# Planning
+🏗️ 专业的 Revit 族库管理系统 | 提升效率的得力助手
 
----
+[演示 Demo](https://demo.example.com) · [问题反馈](https://github.com/yourusername/APP.NET.Familylibrary/issues) · [使用文档](https://docs.example.com)
 
-[1. Exploring the Problem](https://www.notion.so/1-Exploring-the-Problem-161e46a30ad281f3a05ddfb1f0503444?pvs=21)
+</div>
 
-[2. Ideation](https://www.notion.so/2-Ideation-161e46a30ad281c98958cac2eaf5ab87?pvs=21)
+## 🎯 项目简介
+Revit Net FamilyLibrary 是一个基于网络的 Revit 族库管理系统，旨在提供一个集中化的平台来管理、共享和使用 Revit 族文件。该项目正在积极开发中，将为 Revit 用户提供更高效的族文件管理解决方案。
 
-[3. Planning and Organization](https://www.notion.so/3-Planning-and-Organization-161e46a30ad281d09095d26e3d8e428d?pvs=21)
+## 🖥️ 界面预览
 
-[4. Development](https://www.notion.so/4-Development-161e46a30ad281f7bca0ca33d54253c9?pvs=21)
+<div align="center">
+<img src="assets/images/preview-1.png" alt="主界面预览" width="80%">
 
-[5. Testing and Refinement](https://www.notion.so/5-Testing-and-Refinement-161e46a30ad2816a8830e7e0b46ff8cd?pvs=21)
+*主界面预览*
 
-[6. Preparation for Presentation](https://www.notion.so/6-Preparation-for-Presentation-161e46a30ad2819aaacbffb2560f473e?pvs=21)
+<img src="assets/images/preview-2.png" alt="族文件管理界面" width="80%">
 
-[7. Final Presentation](https://www.notion.so/7-Final-Presentation-161e46a30ad28114b6c8c76c1daedc4d?pvs=21)
+*族文件管理界面*
+</div>
 
-[8. Post-Hackathon](https://www.notion.so/8-Post-Hackathon-161e46a30ad281d5a17beed83626fdf9?pvs=21)
+## ✨ 主要功能
+- 📁 族文件的上传、存储和管理
+- 🏷️ 智能分类和标签系统
+- 👀 族文件在线预览
+- 👥 多用户权限管理
+- 📝 族文件版本控制
+- 🔍 快速搜索和筛选功能
+- 📊 族文件使用统计和分析
 
-# Tasks
+## 🔧 技术架构
+### 前端
+- 🖥️ WPF (Windows Presentation Foundation)
+- 📊 .NET 6.0
+- 🎨 Material Design
+- 🔌 RestSharp (HTTP 客户端)
+- 🎯 MVVM 架构模式
 
----
+### 后端
+- 🌐 ASP.NET Core Web API
+- 📦 Entity Framework Core
+- 💾 SQL Server
+- ⚡ Redis (缓存)
+- 🔒 JWT 认证
+- 📝 Swagger/OpenAPI
 
-[Tasks](Tasks%20161e46a30ad281e39c44daa4884e5efa.csv)
+## 📈 开发进度
+- [x] 项目基础架构搭建
+- [ ] 用户认证系统
+- [ ] 族文件管理核心功能
+- [ ] 文件预览功能
+- [ ] 搜索和筛选系统
+- [ ] 权限管理模块
 
-# GitHub Repo
+## 📋 环境要求
+- .NET 6.0 或更高版本
+- Node.js 16.x 或更高版本
+- SQL Server 2019
+- Revit API 2021 或更高版本
 
-↓ Connect your GitHub to sync your project repository into a Notion database.
+## 🚀 快速开始
 
-[无标题](%E6%97%A0%E6%A0%87%E9%A2%98%20161e46a30ad281e5ba0cf06dae194bbd.csv)
+### 1. 克隆仓库
+```bash
+git clone https://github.com/yourusername/APP.NET.Familylibrary.git
+ ```
+
+### 2. 配置开发环境
+```bash
+cd APP.NET.Familylibrary
+dotnet restore
+ ```
+
+### 3. 运行后端服务
+```bash
+cd WebAPI
+dotnet run
+ ```
+
+### 4. 启动前端应用
+```bash
+cd WPFClient
+dotnet run
+ ```
+
+## 🤝 贡献指南
+我们非常欢迎各种形式的贡献，无论是新功能、bug 修复还是文档改进。请查看我们的 贡献指南 了解更多信息。
+
+## 📄 许可证
+本项目采用双重许可证模式：
+- 个人学习和非商业用途可免费使用
+- 商业用途需获取授权，详情请查看 [LICENSE.md](LICENSE.md) 文件或联系技术支持
+
+## 📮 联系我们
+- 项目负责人： Piggy Yan
+- 技术支持： 353554036@qq.com
+如果这个项目对您有帮助，请给我们一个 ⭐️
+ ```
