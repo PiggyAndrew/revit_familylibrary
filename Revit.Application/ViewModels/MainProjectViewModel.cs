@@ -24,7 +24,6 @@ namespace Revit.Application.ViewModels
         {
             if (menuBar != null && !string.IsNullOrWhiteSpace(menuBar.NameSpace))
             {
-                //MessageBox.Show(this.regionManager.Regions.Count().ToString());
                 regionManager.RequestNavigate("ProjectContent", menuBar.NameSpace);
             }
         }
