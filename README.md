@@ -1,4 +1,4 @@
-<img width="1574" height="1031" alt="image" src="https://github.com/user-attachments/assets/0199d234-537d-4ad7-98e4-87f4b548d11a" /># Revit Net FamilyLibrary
+# Revit Net FamilyLibrary
 
 <div align="center">
 
@@ -20,14 +20,15 @@ Revit Net FamilyLibrary 是一个基于网络的 Revit 族库管理系统，旨�
 ## 🖥️ 界面预览
 
 <div align="center">
-<img src="assets/images/preview-1.png" alt="主界面预览" width="80%">
-
+ ![微信截图_20250812214833](https://github.com/user-attachments/assets/94c9b96d-d361-47d5-bb87-59388b53c9bc)
 *主界面预览*
-![微信截图_20250812214833](https://github.com/user-attachments/assets/94c9b96d-d361-47d5-bb87-59388b53c9bc)
 
-<img src="assets/images/preview-2.png" alt="族文件管理界面" width="80%">
-
+<img width="1574" height="1031" alt="image" src="https://github.com/user-attachments/assets/6144f7ed-4130-4b73-881a-a4d97b954024" />
 *族文件管理界面*
+
+
+<img width="1574" height="1031" alt="image" src="https://github.com/user-attachments/assets/79cde0dc-050f-4bc2-9a0b-4d957c83dfc5" />
+*族文件分类管理界面*
 </div>
 
 ## ✨ 主要功能
