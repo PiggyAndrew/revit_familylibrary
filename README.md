@@ -105,7 +105,7 @@ dotnet run
 - 商业用途需获取授权，详情请查看 [LICENSE.md](LICENSE.md) 文件或联系技术支持
 
 ## 📮 联系我们
-- 项目负责人： Piggy Yan
+- 项目负责人： Piggy Andrew
 - 技术支持： 353554036@qq.com
 如果这个项目对您有帮助，请给我们一个 ⭐️
  ```
